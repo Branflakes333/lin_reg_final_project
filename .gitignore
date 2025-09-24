@@ -1,1 +1,4 @@
 .env
+data/epidemiology.csv
+data/mobility.csv
+data/vaccinations.csv
