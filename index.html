@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Short description of the site" />
+  <title>Bayesian Regression Blog</title>
+
+  <!-- Minimal inline styles so it looks OK out of the box -->
+  <style>
+    :root { --max-width: 900px; --gap: 1rem; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+    html,body { height:100%; margin:0; }
+    body { display:flex; align-items:flex-start; justify-content:center; padding:2rem; background:#f7f7f7; color:#111; }
+    .wrap { width:100%; max-width:var(--max-width); background:#fff; padding:1.5rem; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,.06); }
+    header, main, footer { display:block; margin-bottom:var(--gap); }
+    nav a { margin-right:0.75rem; text-decoration:none; color:inherit; opacity:.8; }
+    h1 { margin:0 0 .25rem 0; font-size:1.5rem; }
+    p { margin:.25rem 0; line-height:1.5; }
+  </style>
+</head>
+<body>
+  <div class="wrap" role="document">
+    <header>
+      <h1>Bayesian Blog</h1>
+      <p class="tagline">Exploration of Bayesian Regression</p>
+      <nav aria-label="Main navigation">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </nav>
+    </header>
+
+    <main role="main">
+      <section>
+        <h2>Welcome</h2>
+        <p>Bayesian Regression is awesome.</p>
+      </section>
+      <section> 
+        <iframe src="iris_plot.html" width="100%" height="600"></iframe>
+      </section>
+    </main>
+
+    <footer>
+      <small>&copy; <span id="year"></span>Linear Regression 2025</small>
+    </footer>
+  </div>
+
+  <!-- Small script to keep footer year current -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  
+
+</body>
+</html>
