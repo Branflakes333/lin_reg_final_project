@@ -1,28 +1,42 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Short description of the site" />
-  <title>Bayesian Regression Blog</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Short description of the site" />
+    <title>Bayesian Regression Blog</title>
 
-  <!-- Minimal inline styles so it looks OK out of the box -->
-  <style>
-    :root { --max-width: 900px; --gap: 1rem; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
-    html,body { height:100%; margin:0; }
-    body { display:flex; align-items:flex-start; justify-content:center; padding:2rem; background:#f7f7f7; color:#111; }
-    .wrap { width:100%; max-width:var(--max-width); background:#fff; padding:1.5rem; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,.06); }
-    header, main, footer { display:block; margin-bottom:var(--gap); }
-    nav a { margin-right:0.75rem; text-decoration:none; color:inherit; opacity:.8; }
-    h1 { margin:0 0 .25rem 0; font-size:1.5rem; }
-    p { margin:.25rem 0; line-height:1.5; }
-  </style>
+    <!-- Minimal inline styles so it looks OK out of the box -->
+    <style>
+        :root { --max-width: 900px; --gap: 1rem; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+        html,body { height:100%; margin:0; }
+        body { display:flex; align-items:flex-start; justify-content:center; padding:2rem; background:#f7f7f7; color:#111; }
+        .wrap { width:100%; max-width:var(--max-width); background:#fff; padding:1.5rem; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,.06); }
+        header, main, footer { display:block; margin-bottom:var(--gap); }
+        nav a { margin-right:0.75rem; text-decoration:none; color:inherit; opacity:.8; }
+        h1 { margin:0 0 .25rem 0; font-size:1.5rem; }
+        p { margin:.25rem 0; line-height:1.5; }
+    </style>
+    <script>
+        MathJax = {
+            tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]},
+            svg: {fontCache: 'global'}
+        };
+        </script>
+        <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+      p {
+          text-indent: 3em; /* Indents the first line of all <p> tags by 3 times the font size */
+      }
+    </style>
 </head>
 <body>
   <div class="wrap" role="document">
     <header>
-      <h1>Bayesian Blog</h1>
-      <p class="tagline">Exploration of Bayesian Regression</p>
+      <h1>An Exploration into Bayesian Regression</h1>
+      <p class="tagline">An Exploration into Bayesian Regression</p>
       <nav aria-label="Main navigation">
         <a href="/">Home</a>
         <a href="/about">About</a>
@@ -32,8 +46,75 @@
 
     <main role="main">
       <section>
-        <h2>Welcome</h2>
-        <p>Bayesian Regression is awesome.</p>
+        <h2>Introduction: Why Care About Regression Beyond OLS?</h2>
+        <p> 
+            Making predictions is one of the most powerful things we can do to make the most out of data. 
+            If we are looking at some sample data and believe that we can make predictions on a target data point, linear regression is the way to go. 
+            Linear regression is a statistical method of modeling and estimating the relationship between one or more variables in some data 
+            (called predictors) to generate a prediction. Ordinary Least Squares (OLS) regression is how we choose the estimators to generate our model. 
+            We obtain these estimators by minimizing the sum of squared errors between the estimated predictions and actual values (called residuals).
+            Here is the OLS equation for simple linear regression (one predictor):
+        </p>
+        <p>
+            $$\hat y = X\beta+\epsilon$$
+        <p>
+            Geometrically, here is what OLS regression looks like:
+        </p>
+        <div>
+    
+        </div>
+        <p> 
+            Our goal is to find a line of best fit that will minimize the residuals between our predicted data and the line.
+        </p>
+        <p>
+            OLS, however, only creates single point estimates for our data. 
+            There really is not a great way to model probability distributions on those estimates, 
+            or in other words - observing the level of uncertainty around the estimates we have come up with. 
+            This is where our discussion of Bayesian regression will come in. 
+        </p>
+        <h2>Why Linear Regression Doesn't Always Get the Job Done</h2>
+        <p> 
+            One of the biggest limitations with linear regression is that it performs poorly on samples with low sample size. 
+            It is not uncommon to work with data in which each data point costs a significant portion of your funding. 
+            This results in not a lot of data in your sample. 
+            The ramifications of a small sample size is that inferences of the linear model are statistically unsound and/or useless. 
+            To draw inference through tools such as hypothesis testing or confidence intervals, 
+            we must be able to assume that the error term is approximately normal (and all other assumptions hold true). 
+            With a small sample size, we cannot apply the central limit theorem to assume approximate normality in the error. 
+            Furthermore, with a small sample size, the standard error blows up. 
+
+            $$SE(\hat\beta)^2 = \text{var}(\hat\beta)=\sigma^2(X^TX)^{-1}$$
+
+            With a small sample size, XTX is nearly singular, which then makes its inverse blow up. Hence, the standard error blows up as well. The consequence is that it becomes effectively impossible to reject the null hypothesis of any test because the realm of possibility of the null hypothesis is so wide. Ignoring inference is also not a good idea because slightly different data with cause our estimated coefficients to change drastically.
+        </p>
+        <h2>
+            What Bayesian Regression does Differently
+        </h2>
+        <p> 
+ 
+        </p>
+        <h2>
+            What is Bayesian Regression
+        </h2>
+        <p>
+	        Baye's Theorem, when applied to linear regression, infers the probability distribution for the parameters, given new evidence. 
+            This means that as data changes/evolves we can challenge our prior beliefs, using Bayesian Regression as our framework. 
+        </p>
+        <h2>
+            Going Deeper: Extensions Beyond Basics
+        </h2>
+        <p>
+
+        </p>
+        <h2>
+            Bayesian Visualization
+        </h2>
+        <p>
+
+        </p>
+        <h2>
+            Conslusion
+        </h2>
       </section>
       <section> 
         <iframe src="interactive_regression.html" width="100%" height="600"></iframe>
