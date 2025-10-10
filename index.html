@@ -80,7 +80,7 @@
             This results in not a lot of data in your sample. 
             The ramifications of a small sample size is that inferences of the linear model are statistically unsound and/or useless. 
             To draw inference through tools such as hypothesis testing or confidence intervals, 
-            we must be able to assume that the error term is approximately normal (and all other assumptions hold true). 
+              we must be able to assume that the error term is approximately normal (and all other assumptions hold true). 
             With a small sample size, we cannot apply the central limit theorem to assume approximate normality in the error. 
             Furthermore, with a small sample size, the standard error blows up. 
         </p>
@@ -98,7 +98,21 @@
             What Bayesian Regression does Differently
         </h2>
         <p> 
- 
+          The power of Bayesian regression lies in the prior. 
+          The prior is the mathematical representation of our prior beliefs about our data before observing our sample. 
+          In the case of Bayesian regression, we can have a prior that the coefficients are zero. 
+          This means that the data must provide sufficient evidence to prove otherwise. 
+          This works very well with small samples because, unless the data are very extreme, 
+            it will not be able to sway the estimated coefficients away from the prior—especially when there are not many data points.
+        </p>
+        <p>
+          Consider an example where we think there might be a correlation between some random variables $X$ and $y$. 
+          Suppose that in truth, there is no correlation. 
+          Under OLS regression, the estimated model will fit some non-flat line due to being unable to see the true correlation in the sampling noise. 
+          Because we have our prior assumption that the true coefficient of  $X$ $X$ is zero, 
+            our Bayesian model does a very good job fitting close to the true function, 
+            since the small dataset couldn't disprove our prior because the sampling noise wasn't statistically powerful.
+
         </p>
         <!-- Example plot of Bayes vs SLR regression -->
         <div> 
@@ -139,7 +153,7 @@
     </main>
 
     <footer>
-      <small>&copy; <span id="year"></span> Linear Regression</small>
+      <small><span id="year"></span> Linear Regression</small>
     </footer>
   </div>
 
