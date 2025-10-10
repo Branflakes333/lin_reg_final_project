@@ -73,9 +73,11 @@
         <p> 
             Our goal is to find a line of best fit that will minimize the residuals between our predicted data and the line.
         </p>
+        <br>
         <div> 
           <iframe src="plots/OLS_plot.html" width="100%" height="600"></iframe>
         </div>
+        <br>
         <p>
             OLS, however, only creates single point estimates for our data. 
             There really is not a great way to model probability distributions on those estimates, 
@@ -217,7 +219,7 @@
           This is exactly where Bayesian stands out. 
           When $n$ is small, estimates can be stabilized by the prior that is included in the model. 
           A smaller $n$ shrinks our SSE of the predictor values (denominator of our Bayesian Regression), 
-            in turn, shrinking our whole Bayesian model toward zero. If our n was larger, 
+            in turn, shrinking our whole Bayesian model toward zero. If our $n$ was larger, 
             we would see a shift toward 1, more closely resembling OLS.
         </p>
         <p>
