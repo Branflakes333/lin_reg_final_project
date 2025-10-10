@@ -181,16 +181,47 @@
             <td>More Shrinkage (Pulls Coefficients toward 0</td>
           </tr>
         </table>
+        <p>
+          If we plot this below, we will see that a smaller prior variance, $\tau^2$, will “shrink” our coefficients toward zero. 
+          The dashed horizontal line represents the OLS estimate that we would get without the addition of a prior, 
+            and the sloped dotted line shows the Bayesian estimate with various $\tau^2$ values. 
+          As the Bayesian estimate moves further away from the OLS estimate, you can see the the drop in $\tau^2$ values. 
+          This means that the Bayesian estimate is shrinking the slope toward zero, and the effect being a higher 
+            bias (estimates are now systematically smaller than the actual relationship) and a lower variance.
+        </p>
+        <div>
+          <iframe src="plots/covid_regression.html" width="100%" height="600"></iframe>
+        </div>
         <h2>
             Going Deeper: Extensions Beyond Basics
         </h2>
         <p>
-          There are a few drawbacks, however, to consider when thinking about using Bayesian Regression. One issue is computational 
-          power. For a model with a large number of parameters, it takes a significant amount of computing power to calculate Bayesian 
-          distributions for each of the estimates. Estimating posterior distributions requires using methods such as Markov Chain Monte 
-          Carlo (MCMC) algorithms. MCMC approximates posteriors by using thousands of random samples to eventually reach the most optimal 
-          distribution. This is known as a Markov chain. As the parameters grow, the time complexity of constructing a large Markov chain 
-          grows significantly which can slow down computing time. When working with huge models, this is definitely something important to consider.
+          What about small models? 
+          This is exactly where Bayesian stands out. 
+          When $n$ is small, estimates can be stabilized by the prior that is included in the model. 
+          A smaller $n$ shrinks our SSE of the predictor values (denominator of our Bayesian Regression), 
+            in turn, shrinking our whole Bayesian model toward zero. If our n was larger, 
+            we would see a shift toward 1, more closely resembling OLS.
+        </p>
+        <p>
+          What about multilevel models? 
+          Bayesian can also be useful here. 
+          When it is important for groups to retain their individuality but share the same underlying regression structure, 
+            Bayesian Regression can allow for all groups to use the same predictors and error structure, 
+            linking them through priors. 
+          This linkage keeps these groups, for example hospitals within regions, 
+            from losing their identity by being pooled together, 
+            as well as eliminating the need to fit a separate model for every group.
+        </p>
+        <p>
+          There are a few drawbacks, however, to consider when thinking about using Bayesian Regression. 
+          One issue is computational power. For a model with a large number of parameters, 
+            it takes a significant amount of computing power to calculate Bayesian distributions for each of the estimates. 
+          Estimating posterior distributions requires using methods such as Markov Chain Monte Carlo (MCMC) algorithms. 
+          MCMC approximates posteriors by using thousands of random samples to eventually reach the most optimal distribution. 
+          This is known as a Markov chain. 
+          As the parameters grow, the time complexity of constructing a large Markov chain grows significantly which can slow down computing time. 
+          When working with huge models, this is definitely something important to consider.
         </p>
         <h2>
             Bayesian Visualization
