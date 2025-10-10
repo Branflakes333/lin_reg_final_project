@@ -6,7 +6,7 @@
     <meta name="description" content="Short description of the site" />
     <title>Bayesian Regression Blog</title>
 
-    <!-- Minimal inline styles so it looks OK out of the box -->
+    <!-- rectangle box that looks cool -->
     <style>
         :root { --max-width: 900px; --gap: 1rem; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
         html,body { height:100%; margin:0; }
@@ -17,6 +17,7 @@
         h1 { margin:0 0 .25rem 0; font-size:1.5rem; }
         p { margin:.25rem 0; line-height:1.5; }
     </style>
+    <!-- Import LaTeX -->
     <script>
         MathJax = {
             tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]},
@@ -26,6 +27,7 @@
         <script id="MathJax-script" async
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
+    <!-- Indent first line of paragraphs -->
     <style>
       p {
           text-indent: 3em; /* Indents the first line of all <p> tags by 3 times the font size */
@@ -88,6 +90,7 @@
         <p>
             With a small sample size, $\small X^TX$ is nearly singular, which then makes its inverse blow up. Hence, the standard error blows up as well. The consequence is that it becomes effectively impossible to reject the null hypothesis of any test because the realm of possibility of the null hypothesis is so wide. Ignoring inference is also not a good idea because slightly different data with cause our estimated coefficients to change drastically.
         </p>
+        <!-- Example plot of beta1 sampling distribution by small n -->
         <div> 
         <iframe src="plots/beta1_sampling_by_n.html" width="100%" height="600"></iframe>
         </div>
@@ -97,6 +100,15 @@
         <p> 
  
         </p>
+        <!-- Example plot of Bayes vs SLR regression -->
+        <div> 
+          <iframe src="plots/interactive_regression_1.html" width="100%" height="600"></iframe>
+        </div>
+        <!-- Example plot of Bayes vs MLR regression on 100 diff param coefs -->
+        <div> 
+          <iframe src="plots/interactive_regression.html" width="100%" height="600"></iframe>
+        </div>
+
         <h2>
             What is Bayesian Regression
         </h2>
@@ -113,6 +125,9 @@
         <h2>
             Bayesian Visualization
         </h2>
+        <div>
+          <iframe src="plots/covid_regression.html" width="100%" height="600"></iframe>
+        </div>
         <p>
 
         </p>
@@ -120,9 +135,7 @@
             Conslusion
         </h2>
       </section>
-      <section> 
-        <iframe src="plots/interactive_regression.html" width="100%" height="600"></iframe>
-      </section>
+      
     </main>
 
     <footer>
