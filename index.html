@@ -58,12 +58,6 @@
         </p>
         <p>
             $$\hat y = X\beta+\epsilon$$
-        <p>
-            Geometrically, here is what OLS regression looks like:
-        </p>
-        <div>
-    
-        </div>
         <p> 
             Our goal is to find a line of best fit that will minimize the residuals between our predicted data and the line.
         </p>
@@ -136,6 +130,14 @@
         <p>
 
         </p>
+        <p>
+          There are a few drawbacks, however, to consider when thinking about using Bayesian Regression. One issue is computational 
+          power. For a model with a large number of parameters, it takes a significant amount of computing power to calculate Bayesian 
+          distributions for each of the estimates. Estimating posterior distributions requires using methods such as Markov Chain Monte 
+          Carlo (MCMC) algorithms. MCMC approximates posteriors by using thousands of random samples to eventually reach the most optimal 
+          distribution. This is known as a Markov chain. As the parameters grow, the time complexity of constructing a large Markov chain 
+          grows significantly which can slow down computing time. When working with huge models, this is definitely something important to consider.
+        </p>
         <h2>
             Bayesian Visualization
         </h2>
@@ -146,7 +148,7 @@
 
         </p>
         <h2>
-            Conslusion
+            Conclusion
         </h2>
       </section>
       
