@@ -132,11 +132,37 @@
           <iframe src="plots/covid_regression.html" width="100%" height="600"></iframe>
         </div>
         <p>
-
+         
         </p>
         <h2>
             Conclusion
         </h2>
+        <p>
+           OLS regression is one of the most widely used methods for building predictive models. However, OLS is not always a perfect fit, as it assumes that data are normally distributed which is not the case in the real world. Moreover, in many domains where extensive research already exists and valuable prior knowledge is available, OLS offers no way to incorporate this information into the model, even when it could be critical for increasing the effectiveness of the prediction.
+        </p>
+
+        <p>
+           For example, if we use OLS to distinguish between certain groups, it can only tell us whether the groups appear different or that the model is uncertain. While a Bayesian approach allows us to directly express how the evidence changes our belief: whether it makes us more confident that the groups differ, more confident that they’re similar, or either.
+        </p>
+
+        <p>
+           This is where Bayesian regression becomes more effective, offering several clear advantages over OLS:
+        </p>
+
+        <ul>
+          <li>Really effective even in the cases where data is limited by making use of the prior information.</li>
+          <li>Helps to deal with uncertainty by representing parameters as entire probability distributions instead of single point estimates.</li>
+          <li>Better handling of complex data with non linear-relationships by choosing suitable prior distributions.</li>
+          <li>Less sensitive to outliers, making the model more stable than the classical regression methods.</li>
+        </ul>
+
+        <p>
+          There is no mechanism in OLS to include prior knowledge, but Bayesian regression provides this capability—making it particularly powerful in fields with continuous, ongoing research and strong domain expertise like healthcare and finance.
+        </p>
+
+        <p>
+          Embracing uncertainty is the key for successful impacts especially in Data Science. Bayesian regression is one of the effective methods to handle uncertainty particularly when data are limited and prior knowledge about the parameters is available
+        </p>
       </section>
       
     </main>
