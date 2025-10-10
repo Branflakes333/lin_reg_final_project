@@ -27,10 +27,20 @@
         <script id="MathJax-script" async
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
-    <!-- Indent first line of paragraphs -->
     <style>
+      /* Indent first line of paragraphs */
       p {
-          text-indent: 3em; /* Indents the first line of all <p> tags by 3 times the font size */
+          text-indent: 3em; 
+      }
+      /* Center tables */
+      .centered-table {
+          margin-left: auto;
+          margin-right: auto;
+          border-collapse: collapse;
+          width: 80%;
+      }
+      table, th, td {
+        border: 1px solid black;
       }
     </style>
 </head>
@@ -144,6 +154,32 @@
           as compared to OLS:
           $$\hat\beta_\text{OLS}=\frac{\sum^n_{i=1}x_iy_i}{\sum^n_{i=1}x^2_i}$$
         </div>
+        <p>
+          As mentioned earlier, the prior you place on the $\beta$ is what changes this coefficient from known to random. 
+          This can be seen in the above equations, where we add the prior precision term, 
+            which is the ratio of noise and prior variances, written as $\lambda$, to our OLS Regression in order to arrive at Bayesian Regression. 
+            Given this, we can think intuitively, observing:
+        </p>
+        <table class="centered-table">
+          <tr>
+            <th>Case</th>
+            <th>$\tau^2$ value</th>
+            <th>$\lambda$ value</th>
+            <th>Coefficient Effect</th>
+          </tr>
+          <tr>
+            <td>Biger $\tau^2$</td>
+            <td>Weak Prior</td>
+            <td>Small $\lambda$</td>
+            <td>Less Shrinkage (Similar to OLS)</td>
+          </tr>
+          <tr>
+            <td>Smaller $\tau^2$</td>
+            <td>Strong Prior</td>
+            <td>Bigger $\lambda$</td>
+            <td>More Shrinkage (Pulls Coefficients toward 0</td>
+          </tr>
+        </table>
         <h2>
             Going Deeper: Extensions Beyond Basics
         </h2>
@@ -158,9 +194,24 @@
         <h2>
             Bayesian Visualization
         </h2>
+        <p>
+          Let's turn to a real-world example to see how Bayesian regression outperforms OLS regression.
+          We'll use a COVID-19 dataset of the number of people vaccinated, contaminated (have covid), workplace mobility, and the state of residence.
+          Put yourself into the shoes of a scientist in 2021 when the vaccine was first given out commertially.
+          You'd want to get an accurate idea of how the infection is spreading as soon as possible,
+            but you only have so much data at the beginning.
+          The plot below shows the overall mean squared error of an OLS regression model, and a Bayesion regression model. 
+        </p>
         <div>
           <iframe src="plots/covid_regression.html" width="100%" height="600"></iframe>
         </div>
+        <p>
+          You can see that the Bayesian regression model outperforms the OLS regression model at the beginning of our dataset.
+          Even though we are makng a prior assumption that the coefficients are zero, 
+            the Bayesian model is still able to outperform OLS regression because it is not overfitting to the small amount of data.
+          This could be due to the fact that there is no underlying correlation that can be identified through the noise.
+          This causes the OLS regression to perform poorly, whereas the Bayesian model is much more cautious.
+        </p>
         <h2>
             Conclusion
         </h2>
